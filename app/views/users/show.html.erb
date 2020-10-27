@@ -1,14 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-3">
+      <% content_for(:sidebar) do %>
+      <%= render :partial => "layouts/sidebar" %>
+  <% end %>
+  </div>
+  
+  <div class="col-md-9 pos">
+    <p id="notice" class="text-center"><%= notice %></p>
+    <center>
+      <div class="container">
+        <div class="row pt-5">
+        <div class="col-lg-3 col-sm-1">
+        </div>
+  
+        <div class="event-card col-lg-6 col-sm-10 align-items-start">
+        
+        <p>
+        
+          <%= @user.name %>
+        </p>
+        
+        <p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+          <%= @user.email %>
+        </p>
+        <%= link_to 'Edit', edit_user_path(@user) %> |
+        <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%#= link_to 'Back', users_path %>   
+        </div>
+    </center>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+
+

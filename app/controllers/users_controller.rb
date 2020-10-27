@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_user, only: [:show]
+
   # GET /users
   # GET /users.json
   def index
@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
   end
 
   # GET /users/new
@@ -55,15 +54,11 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    session[:user_id] = nil
-    @user = User.find(params[:id])
     @user.destroy
-    redirect_to new_user_path
-    # @user.destroy
-    # respond_to do |format|
-    #   format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-    #   format.json { head :no_content }
-    # end
+    respond_to do |format|
+      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
