@@ -18,8 +18,8 @@
 //= require popper
 //= require bootstrap-sprockets
 
-$(document).ready(function(){
-    $(".hamburger").click(function(){
-        $(".sidebar").toggleClass("collapse");
-    });
-});
+// $(document).ready(function(){
+//     $(".hamburger").click(function(){
+//         $(".sidebar").toggleClass("collapse");
+//     });
+// });

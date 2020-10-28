@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-md-6 offset-3">
+<div class="card mx-xl-5 session_card">
+  <div class="card-body">
 <%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -12,21 +12,15 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :username %>
+  <p class="h4 text-center py-4">Edit User</p>
+    <%= form.label :name, class:"grey-text font-weight-light" %>
     <%= form.text_field :name, class: 'form-control'%>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
+    <%= form.label :email, class:"grey-text font-weight-light"%>
     <%= form.text_field :email, class: 'form-control' %>
   </div>
-
-  <div class="actions mt-2 ">
+  <div class="text-center py-4 mt-3 ">
     <%= form.submit class: 'btn btn-success text-white'%>
   </div>
 <% end %>
-
 </div>
 </div>

@@ -1,17 +1,20 @@
- <div class="pos">
-  <h1 class='text-center text-primary'>Log in</h1>
-  <div class="row">
-    <div class="col-md-6 offset-3">
+  <!-- Card -->
+<div class="card mx-xl-5 session_card">
+  <!-- Card body -->
+  <div class="card-body">
       <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
-  
-        <%= f.label :email %>
+      <p class="h4 text-center py-4">Log In</p>
+        <%= f.label :email, class:"grey-text font-weight-light" %>
         <%= f.email_field :email, class: 'form-control' %>
   
-        <%= f.label :username %>
+        <%= f.label :name, class:"grey-text font-weight-light"  %>
         <%= f.text_field :name, class: 'form-control' %>
-  
-        <%= f.submit "Log in", class: " mt-2 btn btn-primary" %>
-        <%= link_to "Sign up", signup_path, class: "mx-2" %>
+
+        <div class="text-center py-4 mt-3 ">
+        <%= f.submit "Log in", class: " btn btn-success text-white" %>
+        <%= link_to "Sign up", signup_path, class: "btn btn-primary text-white" %>
+      </div>
+
       <% end %>
   
     </div>

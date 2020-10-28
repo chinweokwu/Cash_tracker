@@ -6,30 +6,42 @@
             <h4><%= link_to current_user.name, user_path(User.find(session[:user_id])), class:"navbar-item" %></h4>
         </center>
         <ul>
-            <li><a href="#" class="active">
+            <li> <%= link_to groups_path, class:"active" do%>
                 <span class="icon">
                     <i class="fas fa-cash-register" aria-hidden="true"></i>
                 </span>
-                <span class="title">All Transaction</span>
-            </a></li>
-            <li><a href="#">
+                <span class="title">
+                        Create Group
+                </span>
+                <%end%>
+            </li>
+            <li> <%= link_to new_group_path do%>
                 <span class="icon">
                     <i class="fas fa-cash-register" aria-hidden="true"></i>
                 </span>
-                <span class="title">All Transaction</span>
-            </a></li>
-            <li><a href="#">
+                <span class="title">
+                        Create Group
+                </span>
+                <%end%>
+            </li>
+            <li> <%= link_to new_group_path do%>
                 <span class="icon">
                     <i class="fas fa-cash-register" aria-hidden="true"></i>
                 </span>
-                <span class="title">All Transaction</span>
-            </a></li>
-            <li><a href="#">
+                <span class="title">
+                        Create Group
+                </span>
+                <%end%>
+            </li>
+            <li> <%= link_to new_group_path do%>
                 <span class="icon">
                     <i class="fas fa-cash-register" aria-hidden="true"></i>
                 </span>
-                <span class="title">All Transaction</span>
-            </a></li>
+                <span class="title">
+                        Create Group
+                </span>
+                <%end%>
+            </li>
         </ul>
     </div>
 

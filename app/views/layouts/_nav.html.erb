@@ -1,10 +1,8 @@
 <div class="wrapper">
     <div class="top_navbar">
-        <div class="hamburger">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+        <button class="navbar-toggler hamburger" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span><i class="fas fa-bars"></i></span> 
+        </button>
         <div class="top_menu">
             <div class="logo">
                 <%= link_to "Cash Tracker", root_path %>
@@ -24,4 +22,52 @@
               <%end%>
         </div>
     </div>
+
+    <% if logged_in? %>
+    <div class="sidebar collapse navbar-collapse" id="navbarNav">
+        <center class="profile">
+            <i class="fas fa-user user_profile"></i>
+            <h4><%= link_to current_user.name, user_path(User.find(session[:user_id])), class:"navbar-item" %></h4>
+        </center>
+        <ul>
+            <li> <%= link_to groups_path, class:"active" do%>
+                <span class="icon">
+                    <i class="fas fa-cash-register" aria-hidden="true"></i>
+                </span>
+                <span class="title">
+                        Create Group
+                </span>
+                <%end%>
+            </li>
+            <li> <%= link_to new_group_path do%>
+                <span class="icon">
+                    <i class="fas fa-cash-register" aria-hidden="true"></i>
+                </span>
+                <span class="title">
+                        Create Group
+                </span>
+                <%end%>
+            </li>
+            <li> <%= link_to new_group_path do%>
+                <span class="icon">
+                    <i class="fas fa-cash-register" aria-hidden="true"></i>
+                </span>
+                <span class="title">
+                        Create Group
+                </span>
+                <%end%>
+            </li>
+            <li> <%= link_to new_group_path do%>
+                <span class="icon">
+                    <i class="fas fa-cash-register" aria-hidden="true"></i>
+                </span>
+                <span class="title">
+                        Create Group
+                </span>
+                <%end%>
+            </li>
+        </ul>
+    </div>
+
+    <%end%>
 </div>
