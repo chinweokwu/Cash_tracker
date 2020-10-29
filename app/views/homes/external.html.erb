@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="mt-5 pt-5 d-flex justify-content-between">
+      <div class="">
+        total amount of transaction :
+      </div>
+      <div class="actual_total_amount">
+        $40
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  <p id="notice" class="text-center text-success"><%= notice %></p>
+  <div class="container bcontent mt-5">
+    <div class="d-flex justify-content-between mb-3">
+  <h3 class=" text-primary">All Transactions</h3>
+  <%= link_to '  New Transaction', new_transaction_path, class:"btn btn-primary text-center" %>
+    </div>
+      <%   @external_transactions.each do |transaction| %>
+      <div class="card" >
+        <div class="d-flex justify-content-around">
+            <div class="mt-4">
+                <i class="fa fa-file-o display-3 " aria-hidden="true"></i>
+            </div>
+            <div class="d-block">
+                <div class="card-body">
+                    <h5 class="card-title"> <%= transaction.name %></h5>
+                    <p class="card-text">Group Name: <%= transaction.name %></p>
+                    <span class="text-muted l-h"><%= transaction.created_at.strftime("%d-%b-%Y") %></span>
+                    <%#= link_to 'Show', transaction %>
+                    <%= link_to 'Edit', edit_transaction_path(transaction) %>
+                    <%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </div>
+            </div>
+            <p class="card-text mt-5"><%= transaction.amount %></p>
+        </div>
+      </div>     
+      <% end %>
+  </div>

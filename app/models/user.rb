@@ -4,4 +4,5 @@ class User < ApplicationRecord
     validates :email, presence: true, format: { with: EMAIL_FORMAT_REGEX }, uniqueness: true
 
     has_many :groups
+    has_many :transactions
 end

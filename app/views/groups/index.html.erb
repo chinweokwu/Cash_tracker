@@ -1,29 +1,33 @@
-<div class="group_pos">
-<p id="notice"><%= notice %></p>
-<h1 class="text-center">Groups</h1>
-<div class="group_app container">
-  
-    <tbody>
-      <% @groups.each do |group| %>
-        <tr>
-          <td><%= group.name %></td><br>
-          <td><i class="<%= group.icon %>"></i></td><br>
-          <td><small class="text-muted"><%= group.created_at %></small></td>
-          <td><%#= link_to 'Show', group %></td>
-          <td><%= link_to 'Edit', edit_group_path(group) %></td>
-          <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td><br/>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+
+        <% if user_allowed %>
+       
+      
+<div class="container b-content ">
+  <p id="notice"><%= notice %></p>
+  <div class="d-flex justify-content-between mb-3">
+    <h3 class=" text-primary">All Group</h3>
+    <%=  link_to 'New Group', new_group_path, class:"btn btn-primary text-center" %>
+      </div>
+    <% @current_user.groups.each do |group| %>
+    <div class="card" >
+      <div class="d-flex justify-content-around">
+          <div class="mt-4">
+            <i class=" display-3 <%=group.icon %>"></i>
+          </div>
+          <div class="d-block">
+              <div class="card-body">
+                  <h5 class="card-title"> <%= group.name %></h5>
+                  <span class="text-muted"><%= group.created_at.strftime("%d-%b-%Y") %></span>
+              </div>
+          </div>
+           <%#= link_to 'Show', group %>
+          <%= link_to 'Edit', edit_group_path(group), class:"mt-5" %>
+          <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' }, class:"mt-5" %>
+      </div>
+    </div>     
+    <% end %>
 </div>
 
-
-<br>
-<button>
-  <%= link_to 'New Group', new_group_path, class:"form-control"%>
-</button>
-
-      </div>
+<%end%>
 
 
