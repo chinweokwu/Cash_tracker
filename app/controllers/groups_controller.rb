@@ -10,6 +10,9 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+    group = Group.find(params[:id])
+    @group_trans = group.transactions.all.order(created_at: :desc)
+    # @total = @group_trans.sum(:amount)
   end
 
   # GET /groups/new

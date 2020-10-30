@@ -31,7 +31,7 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       if @transaction.save
         if @transaction.group_id.nil?
-          format.html { redirect_to external_path, notice: 'Transaction was successfully created.' }
+          format.html { redirect_to external_path, notice: 'External Transaction was successfully created.' }
           format.json { render :show, status: :created, location: external_path }
         else
           format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
@@ -51,6 +51,13 @@ class TransactionsController < ApplicationController
   def update
     respond_to do |format|
       if @transaction.update(transaction_params)
+        if @transaction.group_id.nil?
+          format.html { redirect_to external_path, notice: 'External Transaction was successfully updated.' }
+          format.json { render :show, status: :created, location: external_path }
+        else
+          format.html { redirect_to @transaction, notice: 'Transaction was successfully Updated.' }
+          format.json { render :show, status: :created, location: @transaction }
+        end
         format.html { redirect_to @transaction, notice: 'Transaction was successfully updated.' }
         format.json { render :show, status: :ok, location: @transaction }
       else

@@ -1,14 +1,45 @@
-<p id="notice"><%= notice %></p>
+    
+        <div class="container b-content ">
+          <p id="notice"><%= notice %></p>
+          <div class="d-flex justify-content-between mb-3">
+            <h3 class=" text-primary">All Group</h3>
+            <%=  link_to 'New Group', new_group_path, class:"btn btn-primary text-center" %>
+            <%= link_to 'Back', groups_path %>
+              </div>
+            <% @group_trans.each do |group| %>
+            <div class="card" >
+              <div class="d-flex justify-content-around">
+                  <div class="mt-4">
+                    <i class=" display-3 <%=group.group.icon %>"></i>
+                  </div>
+                  <div class="d-block">
+                      <div class="card-body">
+                          <h5 class="card-title"> <%= group.name %></h5>
+                          <p class="text-muted"><%= group.user.name%></p>
+                          <span class="text-muted"><%= group.created_at.strftime("%d-%b-%Y") %></span>
+                      </div>
+                  </div>
+                   <%#= link_to 'Show', group %>
+                   <div class="d-block mt-4">
+                     <%= group_edit_destroy( group) %>
+                    <!-- <p><%#= link_to 'Edit', edit_group_path(group)%></p>
+                    <p><%#= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' }%></p> -->
+                   </div>
+              </div>
+            </div>     
+            <% end %>
+        </div>
+       
+        
+        
 
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
 
-<p>
-  <strong>Icon:</strong>
-  <%= @group.icon %>
-</p>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+
+
+
+
+
+
+<%#= link_to 'Edit', edit_group_path(@group) %> |
+<%#= link_to 'Back', groups_path %>

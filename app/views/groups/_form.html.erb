@@ -1,10 +1,11 @@
-<%= simple_form_for(@group) do |f| %>
+<div class="container mt-5">
+  <%= simple_form_for(@group) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <div class="form-check form-check-inline ">
+<div class="card">
+  <div class="card-body">
+    <%= f.input :name, input_html: {class: 'form-control'}, wrapper: false, label_html: {class: 'grey-text font-weight-light'} %>
+    <div class="mt-4">
       <%= f.radio_button :icon, 'fas fa-bus' %> <i class="fas fa-bus p-3" aria-hidden="true"></i>
       <%= f.radio_button :icon, 'fas fa-plane-departure' %><i class="fas fa-plane-departure p-3" aria-hidden="true"></i>
       <%= f.radio_button :icon, 'fas fa-business-time' %> <i class="fas fa-business-time p-3" aria-hidden="true"></i>
@@ -18,7 +19,10 @@
     </div>
   </div>
 
+</div>
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
+
+</div>

@@ -1,6 +1,4 @@
 
-        <% if user_allowed %>
-       
       
 <div class="container b-content ">
   <p id="notice"><%= notice %></p>
@@ -8,7 +6,7 @@
     <h3 class=" text-primary">All Group</h3>
     <%=  link_to 'New Group', new_group_path, class:"btn btn-primary text-center" %>
       </div>
-    <% @current_user.groups.each do |group| %>
+    <% @groups.each do |group| %>
     <div class="card" >
       <div class="d-flex justify-content-around">
           <div class="mt-4">
@@ -20,14 +18,13 @@
                   <span class="text-muted"><%= group.created_at.strftime("%d-%b-%Y") %></span>
               </div>
           </div>
-           <%#= link_to 'Show', group %>
-          <%= link_to 'Edit', edit_group_path(group), class:"mt-5" %>
-          <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' }, class:"mt-5" %>
+           <%= link_to 'Show', group, class:"mt-5" %>
+          <%#= link_to 'Edit', edit_group_path(group), class:"mt-5" %>
+          <%#= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' }, class:"mt-5" %>
       </div>
     </div>     
     <% end %>
 </div>
 
-<%end%>
 
 
