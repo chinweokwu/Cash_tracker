@@ -12,7 +12,8 @@ class GroupsController < ApplicationController
   def show
     group = Group.find(params[:id])
     @group_trans = group.transactions.all.order(created_at: :desc)
-    # @total = @group_trans.sum(:amount)
+
+    @total_group_amt = @group_trans.sum(:amount)
   end
 
   # GET /groups/new
@@ -31,11 +32,11 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to @group, notice: 'Group was successfully created.' }
+        format.html { redirect_to groups_url, notice: 'Group was successfully created.' }
         format.json { render :show, status: :created, location: @group }
       else
         format.html { render :new }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
+        format.json { render json: groups_url.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -45,7 +46,7 @@ class GroupsController < ApplicationController
   def update
     respond_to do |format|
       if @group.update(group_params)
-        format.html { redirect_to @group, notice: 'Group was successfully updated.' }
+        format.html { redirect_to groups_url, notice: 'Group was successfully updated.' }
         format.json { render :show, status: :ok, location: @group }
       else
         format.html { render :edit }

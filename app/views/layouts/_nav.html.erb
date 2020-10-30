@@ -8,7 +8,7 @@
                 <%= link_to "Cash Tracker", root_path %>
             </div>
             <% if logged_in? %>
-            <ul class="">
+            <ul>
                 <li>
                     <%= link_to user_path(User.find(session[:user_id])), class:"" do%>
                     <i class="fas fa-user"></i>
@@ -23,51 +23,5 @@
         </div>
     </div>
 
-    <% if logged_in? %>
-    <div class="sidebar collapse navbar-collapse" id="navbarNav">
-        <center class="profile">
-            <i class="fas fa-user user_profile"></i>
-            <h4><%= link_to current_user.name, user_path(User.find(session[:user_id])), class:"navbar-item" %></h4>
-        </center>
-        <ul>
-            <li> <%= link_to transactions_path, class:"active" do%>
-                <span class="icon">
-                    <i class="fas fa-cash-register" aria-hidden="true"></i>
-                </span>
-                <span class="title">
-                       All Transaction
-                </span>
-                <%end%>
-            </li>
-            <li> <%= link_to groups_path do%>
-                <span class="icon">
-                    <i class="fas fa-cash-register" aria-hidden="true"></i>
-                </span>
-                <span class="title">
-                        All Group
-                </span>
-                <%end%>
-            </li>
-            <li> <%= link_to external_path do%>
-                <span class="icon">
-                    <i class="fas fa-cash-register" aria-hidden="true"></i>
-                </span>
-                <span class="title">
-                        External transactions
-                </span>
-                <%end%>
-            </li>
-            <li> <%= link_to new_group_path do%>
-                <span class="icon">
-                    <i class="fas fa-cash-register" aria-hidden="true"></i>
-                </span>
-                <span class="title">
-                        Create Group
-                </span>
-                <%end%>
-            </li>
-        </ul>
-    </div>
-
-    <%end%>
+    <%= sidebar %>
 </div>

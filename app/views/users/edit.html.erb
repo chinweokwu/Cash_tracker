@@ -1,9 +1,10 @@
 
         <p id="notice"><%= notice %></p>
         <%= render 'form', user: @user %>
-        <button >
-                <%= link_to 'Back', @user, class:"b"%>    
-        </button>
+        <div class="container">
+         <%= link_to '<<<back', @user, class:"btn btn-primary"%>       
+        </div>
+
         <%#= link_to 'Back', users_path %>
 
 

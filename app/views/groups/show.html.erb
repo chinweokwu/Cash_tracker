@@ -1,4 +1,13 @@
-    
+<div class="container">
+  <div class="mt-5 pt-5 d-flex justify-content-between">
+    <div class="">
+      total amount of transaction :
+    </div>
+    <div class="actual_total_amount">
+      $ <%= @total_group_amt %>
+    </div>
+  </div>
+</div>
         <div class="container b-content ">
           <p id="notice"><%= notice %></p>
           <div class="d-flex justify-content-between mb-3">
@@ -17,11 +26,12 @@
                           <h5 class="card-title"> <%= group.name %></h5>
                           <p class="text-muted"><%= group.user.name%></p>
                           <span class="text-muted"><%= group.created_at.strftime("%d-%b-%Y") %></span>
+                          <%= group_edit_destroy( group) %>
                       </div>
                   </div>
                    <%#= link_to 'Show', group %>
                    <div class="d-block mt-4">
-                     <%= group_edit_destroy( group) %>
+                    <p > $ <%=group.amount %></p>
                     <!-- <p><%#= link_to 'Edit', edit_group_path(group)%></p>
                     <p><%#= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' }%></p> -->
                    </div>

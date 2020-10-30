@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   root "transactions#index"
 
   get '/external', to: 'homes#external'
+  get '/friend_transaction', to: 'homes#friend_transaction'
 end

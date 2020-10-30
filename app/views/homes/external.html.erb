@@ -4,7 +4,7 @@
         total amount of transaction :
       </div>
       <div class="actual_total_amount">
-        $40
+        $ <%=@total_ex_trans%>
       </div>
     </div>
   </div>
@@ -34,7 +34,7 @@
                     <%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %>
                 </div>
             </div>
-            <p class="card-text mt-5"><%= transaction.amount %></p>
+            <p class="card-text mt-5"> $ <%= transaction.amount %></p>
         </div>
       </div>     
       <% end %>

@@ -7,6 +7,8 @@ class TransactionsController < ApplicationController
     @transaction = current_user.transactions.all
     @ex_transaction = @transaction.where.not(group_id: nil)
     @external_transaction_sorted = @ex_transaction.includes([:group]).sort_by(&:created_at).reverse
+
+    @total_trans = @ex_transaction.sum(:amount)
   end
 
   # GET /transactions/1
@@ -34,10 +36,10 @@ class TransactionsController < ApplicationController
           format.html { redirect_to external_path, notice: 'External Transaction was successfully created.' }
           format.json { render :show, status: :created, location: external_path }
         else
-          format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
+          format.html { redirect_to transactions_url, notice: 'Transaction was successfully created.' }
           format.json { render :show, status: :created, location: @transaction }
         end
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
+        format.html { redirect_to transactions_url, notice: 'Transaction was successfully created.' }
         format.json { render :show, status: :created, location: @transaction }
       else
         format.html { render :new }
