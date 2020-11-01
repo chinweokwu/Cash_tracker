@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2020_10_28_011900) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.string "icon"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_groups_on_user_id"
@@ -24,8 +27,8 @@ ActiveRecord::Schema.define(version: 2020_10_28_011900) do
   create_table "transactions", force: :cascade do |t|
     t.string "name"
     t.integer "amount"
-    t.integer "user_id"
-    t.integer "group_id"
+    t.bigint "user_id"
+    t.bigint "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_transactions_on_group_id"
@@ -39,4 +42,7 @@ ActiveRecord::Schema.define(version: 2020_10_28_011900) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "groups", "users"
+  add_foreign_key "transactions", "groups"
+  add_foreign_key "transactions", "users"
 end
