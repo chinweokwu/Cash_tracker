@@ -1,0 +1,31 @@
+<div class="container b-content">
+    <%= simple_form_for(@group) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="card">
+    <div class="card-body">
+        <h3 class="mt-5 text-center">Create New Group</h3>
+      <%= f.input :name, input_html: {class: 'form-control'}, wrapper: false, label_html: {class: 'grey-text font-weight-light'} %>
+        <div class="mt-4">
+            <%= f.radio_button :icon, 'fas fa-bus' %> <i class="fas fa-bus p-3" aria-hidden="true"></i>
+            <%= f.radio_button :icon, 'fas fa-plane-departure' %><i class="fas fa-plane-departure p-3" aria-hidden="true"></i>
+            <%= f.radio_button :icon, 'fas fa-business-time' %> <i class="fas fa-business-time p-3" aria-hidden="true"></i>
+            <%= f.radio_button :icon, 'fas fa-train' %> <i class="fas fa-train p-3" aria-hidden="true"></i>
+            <%= f.radio_button :icon, 'fas fa-vest-patches' %> <i class="fas fa-vest-patches p-3" aria-hidden="true"></i>
+            <%= f.radio_button :icon, 'fas fa-house-user' %> <i class="fas fa-house-user p-3" aria-hidden="true"></i>
+            <%= f.radio_button :icon, 'fas fa-shoe-prints' %> <i class="fas fa-shoe-prints p-3" aria-hidden="true"></i>
+            <%= f.radio_button :icon, 'fa-dumbbell' %> <i class="fas fa-dumbbell p-3" aria-hidden="true"></i>
+            <%= f.radio_button :icon, 'fas fa-piggy-bank' %> <i class="fas fa-piggy-bank p-3" aria-hidden="true"></i>
+            <%= f.radio_button :icon, 'fas fa-hospital' %> <i class="fas fa-hospital p-3" aria-hidden="true"></i>
+          </div>
+      <div class="card-footer bg-white d-flex justify-content-between">
+        <%= link_to '<<<back', groups_path %>
+        <div class="form-actions">
+            <%= f.button :submit, class:"btn btn-primary" %>
+          </div>
+      </div>
+    </div>
+   
+  </div> 
+   <% end %>
+  </div>

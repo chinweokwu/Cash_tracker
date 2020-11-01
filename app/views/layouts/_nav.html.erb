@@ -1,0 +1,27 @@
+<div class="wrapper">
+    <div class="top_navbar">
+        <button class="navbar-toggler hamburger" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span><i class="fas fa-bars"></i></span> 
+        </button>
+        <div class="top_menu">
+            <div class="logo">
+                <%= link_to "Cash Tracker", root_path %>
+            </div>
+            <% if logged_in? %>
+            <ul>
+                <li>
+                    <%= link_to user_path(User.find(session[:user_id])), class:"" do%>
+                    <i class="fas fa-user"></i>
+                <%end%>
+                </li>
+                <li>
+                    <%= link_to logout_path, class: "", method: :delete do %>
+                    <i class="fas fa-sign-out-alt"></i>
+                    <%end%>
+              </ul>
+              <%end%>
+        </div>
+    </div>
+
+    <%= sidebar %>
+</div>

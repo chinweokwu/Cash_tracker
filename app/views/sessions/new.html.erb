@@ -1,0 +1,23 @@
+  <!-- Card -->
+<div class="card mx-xl-5 session_card">
+  <!-- Card body -->
+  <div class="card-body">
+      <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+      <p class="h4 text-center py-4">Log In</p>
+        <%= f.label :email, class:"grey-text font-weight-light" %>
+        <%= f.email_field :email, class: 'form-control' %>
+  
+        <%= f.label :name, class:"grey-text font-weight-light"  %>
+        <%= f.text_field :name, class: 'form-control' %>
+
+        <div class="text-center py-4 mt-3 ">
+        <%= f.submit "Log in", class: " btn btn-success text-white" %>
+        <%= link_to "Sign up", signup_path, class: "btn btn-primary text-white" %>
+      </div>
+
+      <% end %>
+  
+    </div>
+  </div>
+ </div>
+ 

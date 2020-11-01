@@ -1,0 +1,201 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ */
+ @import "bootstrap";
+ @import url("//fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,600;0,700;1,400&display=swap");
+* {
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background: #e1ecf2;
+}
+
+.wrapper {
+    margin: 10px;
+}
+
+.wrapper .top_navbar {
+    width: calc(100% - 20px);
+    height: 60px;
+    display: flex;
+    position: fixed;
+    top: 10px;
+    z-index: 100;
+}
+
+.wrapper .top_navbar .hamburger{
+    width: 70px;
+    height: 100%;
+    background: #2e4ead;
+    padding: 15px 17px;
+    border-top-left-radius: 20px;
+    cursor: pointer;
+}
+
+.wrapper .top_navbar .top_menu {
+    width: calc(100% - 70px);
+    background: #fff;
+    height: 100%;
+    border-top-right-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 1px 1px;
+}
+
+.wrapper .top_navbar .top_menu .logo {
+    color: #2e4ead;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.wrapper .top_navbar .top_menu ul {
+    display: flex;
+
+    a:link {
+        display: block;
+        margin: 0 10px;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        border: 1px solid #2e4ead;
+        text-align: center;
+        border-radius: 50%;
+        color: #2e4ead;
+
+        &:hover{
+            background:  #4360b5;
+            color: #fff;
+        }
+    }
+}
+
+.wrapper .sidebar {
+    position: fixed;
+    z-index: 100;
+    top: 70px;
+    left: 10px;
+    background: #2e4ead;
+    width: 300px;
+    height: calc(100% - 80px);
+    border-bottom-left-radius: 20px;
+    transition: all 0.3s ease;
+
+    ul {
+        padding: 0;
+    }
+
+    a:link {
+        display: block;
+        padding: 20px;
+        color: #92a692;
+        position: relative;
+        margin-bottom: 1px;
+   
+   
+        &:hover{
+           text-decoration: none;
+           background: #4360b5;
+           .active {
+            background: #4360b5;
+            color: #fff;
+            }
+       }
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width:30px;
+            height: 100%;
+            // background: #92a6e2;
+
+            .active {
+                display: block;
+            }
+        }
+
+    }
+}
+.active {
+    background: #4360b5;
+    color: #fff;
+    }
+.icon {
+    margin-right: 10px;
+    display: inline-block;
+    color: #92a692;
+}
+.title {
+    display: inline-block;
+    color: #92a692;
+}
+ .wrapper .sidebar .profile {
+     padding-top: 40px;
+ }
+ .wrapper .sidebar .user_profile {
+     font-size: 100px;
+     color:  #fff;
+     padding-bottom: 10px;
+ }
+
+ .pos {
+   margin-top: 150px;
+ }
+
+ .event-card {
+    padding: 5%;
+    border: 5px solid #2e4ead;
+    border-radius: 5%;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+
+  .main_container {
+      width: calc(100% - 200px);
+      margin-top: 70px;
+      margin-left: 200px;
+      padding: 15px;
+      transition: all 0.3s ease;
+  }
+
+  .main_container .items {
+      background: #fff;
+      margin-bottom: 10px;
+      padding: 15px;
+      font-size: 14px;
+      line-height: 22px;
+  }
+
+  .group_pos {
+    margin-top: 80px;
+  }
+
+  .group_app{
+    background: #fff;
+    height: fit-content;
+    border-radius: 12px;
+   }
+
+  .session_card {
+      margin-top: 80px;
+  }
+
+  .b-content {
+      margin-top: 100px;
+  }
