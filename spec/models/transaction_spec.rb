@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Transaction, type: :model do
-  let(:user_account) {User.create!(name: 'pman', email: 'pman@example.com')}
- let(:create_group) {user_account.groups.create!(name: 'gym', icon: ' <i class="fas fa-cash-register" aria-hidden="true"></i>')}
-  let(:transaction_account) {Transaction.create!(name: 'food', amount: 100, user_id: user_account.id, group_id: create_group.id)}
+  let(:user_account) { User.create!(name: 'pman', email: 'pman@example.com') }
+  let(:create_group) { user_account.groups.create!(name: 'gym', icon: ' <i class="fas fa-cash-register" aria-hidden="true"></i>') }
+  let(:transaction_account) { Transaction.create!(name: 'food', amount: 100, user_id: user_account.id, group_id: create_group.id) }
 
   it 'is valid with all attributes present' do
     expect(transaction_account).to be_valid
