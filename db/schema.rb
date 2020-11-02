@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_10_28_011900) do
 
   create_table "transactions", force: :cascade do |t|
     t.string "name"
-    t.string "amount"
+    t.integer "amount"
     t.integer "user_id"
     t.integer "group_id"
     t.datetime "created_at", null: false

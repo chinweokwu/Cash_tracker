@@ -1,10 +1,11 @@
+
 <div class="container">
   <div class="mt-5 pt-5 d-flex justify-content-between">
     <div class="">
       total amount of transaction :
     </div>
     <div class="actual_total_amount">
-      $40
+      $ <%= @total_trans %>
     </div>
   </div>
 </div>
@@ -34,7 +35,7 @@
                   <%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %>
               </div>
           </div>
-          <p class="card-text mt-5"><%= transaction.amount %></p>
+          <p class="card-text mt-5"> $ <%= transaction.amount %></p>
       </div>
     </div>     
     <% end %>
