@@ -1,9 +1,10 @@
 
         <p id="notice"><%= notice %></p>
+        <h1 class="session_card text-center">Editing User</h1>
         <%= render 'form', user: @user %>
-        <button >
-                <%= link_to 'Back', @user, class:"b"%>    
-        </button>
+        <div class="container" >
+                <%= link_to '<<back', @user, class:"btn btn-primary form-control"%>    
+        </div>
         <%#= link_to 'Back', users_path %>
 
 
