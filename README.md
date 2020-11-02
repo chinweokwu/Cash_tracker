@@ -62,7 +62,7 @@
 
 ## Authors  ![Hireable](https://img.shields.io/badge/HIREABLE-YES-yellowgreen&?style=for-the-badge)
 
-👤 **Peter Robert**
+👤 **Paul chinweokwu Morah**
 
 - Github: [@paulmorah](https://github.com/chinweokwu)
 - Twitter: [@Morah89820846](https://twitter.com/Morah89820846)
