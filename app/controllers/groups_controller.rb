@@ -12,7 +12,8 @@ class GroupsController < ApplicationController
   def show
     group = Group.find(params[:id])
     @group_trans = group.transactions.all.order(created_at: :desc)
-    # @total = @group_trans.sum(:amount)
+    
+    @total_group_amt = @group_trans.sum(:amount)
   end
 
   # GET /groups/new
