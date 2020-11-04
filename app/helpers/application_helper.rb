@@ -7,10 +7,6 @@ module ApplicationHelper
     end
   end
 
-  # def sidebar
-  #   render partial: 'layouts/sidebar' if logged_in?
-  # end
-
   def user_total_trans(user, amount)
     user.transactions.sum(amount)
   end

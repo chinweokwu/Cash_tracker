@@ -16,7 +16,7 @@
 <p id="notice" class="text-center text-success"><%= notice %></p>
 <div class="container bcontent mt-5">
   <div class="d-flex justify-content-between mb-3">
-<h3 class=" text-primary">All Transactions</h3>
+<h3 class=" text-primary">All External Transactions</h3>
 <%= link_to '  New Transaction', new_transaction_path, class:"btn btn-primary text-center" %>
   </div>
     <%   @external_transactions.each do |transaction| %>
@@ -30,7 +30,6 @@
                   <h5 class="card-title"> <%= transaction.name %></h5>
                   <p class="card-text">Group Name: <%= transaction.name %></p>
                   <span class="text-muted l-h"><%= transaction.created_at.strftime("%d-%b-%Y") %></span>
-                  <%#= link_to 'Show', transaction %>
                   <%= link_to 'Edit', edit_transaction_path(transaction) %>
                   <%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %>
               </div>

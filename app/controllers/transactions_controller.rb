@@ -1,30 +1,24 @@
 class TransactionsController < ApplicationController
   before_action :set_transaction, only: %i[show edit update destroy]
   before_action :logged_in_user
-  # GET /transactions
-  # GET /transactions.json
+
   def index
-    @transaction = current_user.transactions.all
+    @transaction = current_user.transactions.all.order(created_at: :desc)
+    @external_transactions = current_user.transactions.where(group_id: nil).order(created_at: :desc)
     @ex_transaction = @transaction.where.not(group_id: nil)
     @external_transaction_sorted = @ex_transaction.includes([:group]).sort_by(&:created_at).reverse
-
     @total_trans = @ex_transaction.sum(:amount)
+    @total_exp = @transaction.sum(:amount)
   end
 
-  # GET /transactions/1
-  # GET /transactions/1.json
   def show; end
 
-  # GET /transactions/new
   def new
     @transaction = current_user.transactions.build
   end
 
-  # GET /transactions/1/edit
   def edit; end
 
-  # POST /transactions
-  # POST /transactions.json
   def create
     @transaction = current_user.transactions.build(transaction_params)
 
@@ -46,8 +40,6 @@ class TransactionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /transactions/1
-  # PATCH/PUT /transactions/1.json
   def update
     respond_to do |format|
       if @transaction.update(transaction_params)
@@ -67,8 +59,6 @@ class TransactionsController < ApplicationController
     end
   end
 
-  # DELETE /transactions/1
-  # DELETE /transactions/1.json
   def destroy
     @transaction.destroy
     respond_to do |format|
@@ -79,12 +69,10 @@ class TransactionsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_transaction
     @transaction = Transaction.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def transaction_params
     params.require(:transaction).permit(:name, :amount, :user_id, :group_id)
   end

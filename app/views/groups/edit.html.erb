@@ -1,5 +1,4 @@
- 
-<div class="container b-content">
+ <div class="container b-content">
   <%= simple_form_for(@group) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -32,7 +31,3 @@
 </div> 
  <% end %>
 </div>
-
-
-
-<%#= render 'form', group: @group %>

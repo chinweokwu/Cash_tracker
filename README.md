@@ -12,11 +12,7 @@
 ## How to Install
 
 - Install Ruby in your system. To install Ruby, you can read the [Documentation](https://www.ruby-lang.org/en/documentation/installation/)
-- Install rails to do that run this command in your console
-    ``` 
-    gem install rails
 
-    ``` 
 - Then For Windows users, open Command Prompt and run:
     ```console
     C:\>cd cash-tracker folder
@@ -25,9 +21,19 @@
 - Open another terminal or Command line and run:  
 
   ```
+    $ bundle install
+    $ rails db:create
     $ rails db:migrate
     
-    ``` 
+   ``` 
+
+- To carry out Rspec test on Command line and run:  
+
+  ```
+    $ rspec
+    
+  ``` 
+
 - For Linux and Mac users, open a Terminal and run:
     ```console
     
