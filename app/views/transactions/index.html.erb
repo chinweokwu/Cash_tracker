@@ -16,36 +16,24 @@
 <%= link_to '  New Transaction', new_transaction_path, class:"btn btn-primary text-center" %>
   </div>
 
-    <%@external_transaction_sorted.each do |transaction| %>
+    <% @transaction.each do |transaction| %>
     <div class="card" >
       <div class="d-flex justify-content-around">
           <div class="mt-4">
+            <%if transaction.group_id == nil%>
+            <i class="fa fa-file-o display-3 " aria-hidden="true"></i>
+            <%else%>
             <i class=" display-3 <%= transaction.group.icon %>"></i>
+            <%end%>
           </div>
           <div class="d-block">
               <div class="card-body">
                   <h5 class="card-title"> <%= transaction.name %></h5>
+                  <%if transaction.group_id == nil%>
+                  <p class="card-text">Group Name: Nil</p>
+                  <%else%>
                   <p class="card-text">Group Name: <%= transaction.group.name %></p>
-                  <span class="text-muted l-h"><%= transaction.created_at.strftime("%d-%b-%Y") %></span>
-                  <%= link_to 'Edit', edit_transaction_path(transaction) %>
-                  <%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %>
-              </div>
-          </div>
-          <p class="card-text mt-5"> $ <%= transaction.amount %></p>
-      </div>
-    </div>     
-    <% end %>
-
-    <%   @external_transactions.each do |transaction| %>
-    <div class="card" >
-      <div class="d-flex justify-content-around">
-          <div class="mt-4">
-              <i class="fa fa-file-o display-3 " aria-hidden="true"></i>
-          </div>
-          <div class="d-block">
-              <div class="card-body">
-                  <h5 class="card-title"> <%= transaction.name %></h5>
-                  <p class="card-text">Group Name: <%= transaction.name %></p>
+                  <%end%>
                   <span class="text-muted l-h"><%= transaction.created_at.strftime("%d-%b-%Y") %></span>
                   <%= link_to 'Edit', edit_transaction_path(transaction) %>
                   <%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %>
