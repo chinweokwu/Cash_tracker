@@ -12,18 +12,18 @@ module ApplicationHelper
   end
 
   def all_trans_icon(transaction)
-    if transaction.group_id == nil
+    if transaction.group_id.nil?
       content_tag(:i, '', class: 'fa fa-file-o display-3')
     else
-      ('<i class=" display-3 ' + (transaction.group.icon)+'"></i>').html_safe
+      ('<i class=" display-3 ' + transaction.group.icon + '"></i>').html_safe
     end
   end
 
   def all_trans_name(transaction)
-    if transaction.group_id == nil
-    content_tag(:p, 'Group Name: Nil', class: 'card-text')
+    if transaction.group_id.nil?
+      content_tag(:p, 'Group Name: Nil', class: 'card-text')
     else
-   content_tag(:p, (transaction.group.name), class: 'card-text')
+      content_tag(:p, transaction.group.name, class: 'card-text')
     end
   end
 end
