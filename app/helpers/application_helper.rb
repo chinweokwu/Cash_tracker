@@ -26,5 +26,13 @@ module ApplicationHelper
       content_tag(:p, transaction.group.name, class: 'card-text')
     end
   end
+
+  def nav_profile
+    render partial: 'layouts/profile' if logged_in?
+  end
+
+  def side_nav
+    render partial: 'layouts/sidebar' if logged_in?
+  end
 end
 # rubocop:enable Style/GuardClause

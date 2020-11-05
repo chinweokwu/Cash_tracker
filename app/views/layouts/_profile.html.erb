@@ -1,0 +1,12 @@
+<ul class="">
+    <li>
+        <%= link_to user_path(User.find(session[:user_id])), class:"" do%>
+            <i class="fas fa-user"></i>
+        <%end%>
+    </li>
+    <li>
+        <%= link_to logout_path, class: "", method: :delete do %>
+            <i class="fas fa-sign-out-alt"></i>
+        <%end%>
+    </li>
+  </ul>
