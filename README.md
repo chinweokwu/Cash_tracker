@@ -52,10 +52,6 @@
 
 ![screenshot](./app/assets/images/img1.png)
 
-
-![screenshot](./app/assets/images/img2.png)
-
-
 ![screenshot](./app/assets/images/img4.png)
 
 ![screenshot](./app/assets/images/img6.png)

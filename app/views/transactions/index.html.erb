@@ -20,20 +20,12 @@
     <div class="card" >
       <div class="d-flex justify-content-around">
           <div class="mt-4">
-            <%if transaction.group_id == nil%>
-            <i class="fa fa-file-o display-3 " aria-hidden="true"></i>
-            <%else%>
-            <i class=" display-3 <%= transaction.group.icon %>"></i>
-            <%end%>
+           <%= all_trans_icon(transaction)%>
           </div>
           <div class="d-block">
               <div class="card-body">
                   <h5 class="card-title"> <%= transaction.name %></h5>
-                  <%if transaction.group_id == nil%>
-                  <p class="card-text">Group Name: Nil</p>
-                  <%else%>
-                  <p class="card-text">Group Name: <%= transaction.group.name %></p>
-                  <%end%>
+                      <%= all_trans_name(transaction) %>
                   <span class="text-muted l-h"><%= transaction.created_at.strftime("%d-%b-%Y") %></span>
                   <%= link_to 'Edit', edit_transaction_path(transaction) %>
                   <%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %>

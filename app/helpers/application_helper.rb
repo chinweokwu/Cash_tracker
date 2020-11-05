@@ -11,19 +11,19 @@ module ApplicationHelper
     user.transactions.sum(amount)
   end
 
-  def all_trans(transaction, value)
-    if transaction.group_id.value == nil
-          transaction[group_id] = "none"
+  def all_trans_icon(transaction)
+    if transaction.group_id == nil
+      content_tag(:i, '', class: 'fa fa-file-o display-3')
     else
-          transaction[group_name]
+      ('<i class=" display-3 ' + (transaction.group.icon)+'"></i>').html_safe
     end
   end
 
-  def all_trans=(value)
-    if transaction.value.empty?
-      write_attribute(:name, nil)
+  def all_trans_name(transaction)
+    if transaction.group_id == nil
+    content_tag(:p, 'Group Name: Nil', class: 'card-text')
     else
-      super
+   content_tag(:p, (transaction.group.name), class: 'card-text')
     end
   end
 end
