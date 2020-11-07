@@ -1,0 +1,27 @@
+
+<div class="card mx-xl-5 session_card">
+    <div class="card-body">
+      <%= simple_form_for(@transaction) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+        <%= link_to "<<<", transactions_path, class:"display-5" %>
+        <h1 class="h4 text-center py-4">New Transaction</h1>
+          <div class="form-inputs">
+              <%= f.input :name, input_html: {class: 'form-control'}, wrapper: false, label_html: {class: 'grey-text font-weight-light'} %>
+              <%= f.input :amount, input_html: {class: 'form-control'}, wrapper: false, label_html: {class: 'grey-text font-weight-light'} %>
+              <%= f.label :group, label_html: {class: 'grey-text font-weight-light'} %>
+              <select id="transaction_group_id" name="transaction[group_id]" class="custom-select" id="inputGroupSelect01">
+                <option value='<%= nil%>'>None</option>
+                <% Group.all.each do |group| %>
+                  <option value="<%= group.id %>"><%= group.name %></option>
+                <% end %>
+              </select>
+          </div>
+  
+          <div class="form-actions">
+              <%= f.button :submit, class:"form-control bg-primary text-white my-5" %>
+          </div>
+      <% end %>
+      <%#= link_to "external transaction", external_path %>
+    </div>
+  </div>
