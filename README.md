@@ -71,8 +71,25 @@
 - Linkedin: [Paul Chinweoku Morah](https://www.linkedin.com/in/morah-paul/)
 
 
+
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!. Feel free to check the [issues page](issues/).
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/chinweokwu/Cash_tracker/issues/).
 
 ## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+You can access all the design info - color, typography, layouts - at this link:
+
+[Design](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding)
+
+Design idea by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella)
+
+I made some changes to this design.
+
+# group-our-transactions
